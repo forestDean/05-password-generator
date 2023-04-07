@@ -103,30 +103,33 @@ var upperCasedCharacters = [
 //     or written to the page
 //  =============================================================================================
 
-
+//break;
+//alert("start")
 // Function to prompt user for password options
+//var passLength;
 function getPasswordOptions() {
-  var passLength = prompt("How many characters do you want in your password?\nWe recommend over 12");
-
+  var passLength = prompt("How many characters do you want in your password?\nMinimum 8 but we recommend over 12");
+//switch...
+//CHECK over 8
   while (isNaN(passLength)) {
-    prompt("That wasn't a number ...try again!\nHow many characters do you want in your password?\nWe recommend over 12");
+    prompt("That wasn't a number ...try again!\nHow many characters do you want in your password?\nMinimum 8 but we recommend over 12");
     break;
   }
   confirm(passLength);
 
-  var passSpecial = prompt("Would you like to use Special Characters? Y/N");
+  //var passSpecial = prompt("Would you like to use Special Characters? Y/N");
 
-  while (!isNaN(passSpecial)) {
-    prompt("That wasn't Y/N ...try again!\nWould you like to use Special Characters? Y/N ");
-  }
-  passSpecial = passSpecial.toUpperCase();
-  // while condition not correct
-  //while  ((passSpecial !== Y || N) && (!isNaN(passSpecial))) {
+  // while (!isNaN(passSpecial)) {
+  //   prompt("That wasn't Y/N ...try again!\nWould you like to use Special Characters? Y/N ");
+  // }
+  // passSpecial = passSpecial.toUpperCase();
+  // // while condition not correct
+  // //while  ((passSpecial !== Y || N) && (!isNaN(passSpecial))) {
     
-  while  (passSpecial !== Y || N) {
-    prompt("That wasn't Y/N ...try again!\nWould you like to use Special Characters? Y/N ");
-  }
-  confirm(passSpecial.toString());
+  // while  (passSpecial !== Y || N) {
+  //   prompt("That wasn't Y/N ...try again!\nWould you like to use Special Characters? Y/N ");
+  // }
+  // confirm(passSpecial.toString());
 
 }
 
@@ -141,12 +144,17 @@ console.log(getRandom(upperCasedCharacters));
 
 // Function to generate password with user input
 function generatePassword() {
-
+alert(passLength + "at generatePassword")
+//return "pa55word123";
 }
+
+// Get references to the #start element
+var startBtn = document.querySelector('#start');
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
-
+//getPasswordOptions();
+//this.style.backgroundColor = "green";
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -155,7 +163,11 @@ function writePassword() {
   passwordText.value = password;
 }
 
+// Add event listener to start button
+startBtn.addEventListener('click', getPasswordOptions);
+
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-//alert("button");
-getPasswordOptions();
+
+
+// password copy all on click
