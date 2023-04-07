@@ -5,16 +5,16 @@
 - validate min/max length, number
 - 
 - get var **special characters** Y/N
-- validate letter
+- validate Y/N
 - 
 - get var **number characters** Y/N
-- validate letter
+- validate Y/N
 - 
 - get var **lowercase characters** Y/N
-- validate letter
+- validate Y/N
 - 
 - get var **uppercase characters** Y/N
-- validate letter
+- validate Y/N
 - 
 - on *Generate* click
 - create **password array**
@@ -26,3 +26,4 @@
 - set copy on click
 - 
 - <mark>check responsive display</mark>
+- check 128 characters

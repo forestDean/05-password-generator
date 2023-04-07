@@ -108,19 +108,27 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 //var passLength;
 function getPasswordOptions() {
-  var passLength = prompt("How many characters do you want in your password?\nMinimum 8 but we recommend over 12");
+  var passLength = prompt("How many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");
 
-//CHECK over 8
   if (isNaN(passLength)) {
-    prompt("That wasn't a number ...try again!\nHow many characters do you want in your password?\nMinimum 8 but we recommend over 12");
+    prompt("That wasn't a number ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");
     //break;
   // At least 8 characters but no more than 128
-  } else if (too low/high) {
-    
-  }
+  } else if (passLength < 8) {
+    prompt("That number was too low ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");  
+  } else if (passLength > 128) {
+    prompt("That number was too high ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");
+  } else {
+    console.log(passLength);
+    return passLength;
+    //confirm(passLength);
+    //continue;
+
+  };
+
   confirm(passLength);
 
-  //var passSpecial = prompt("Would you like to use Special Characters? Y/N");
+  var passSpecial = prompt("Would you like to use Special Characters? Y/N");
   //switch... case Y||y and N||n
   // while (!isNaN(passSpecial)) {
   //   prompt("That wasn't Y/N ...try again!\nWould you like to use Special Characters? Y/N ");
@@ -134,20 +142,23 @@ function getPasswordOptions() {
   // }
   // confirm(passSpecial.toString());
 
+  ///if all above false ...the password will be UPPERCASE
+
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
   return arr[Math.floor(Math.random() * (arr.length -1))];
 } 
-console.log(getRandom(specialCharacters ));
-console.log(getRandom(numericCharacters));
-console.log(getRandom(lowerCasedCharacters));
-console.log(getRandom(upperCasedCharacters));
+// console.log(getRandom(specialCharacters ));
+// console.log(getRandom(numericCharacters));
+// console.log(getRandom(lowerCasedCharacters));
+// console.log(getRandom(upperCasedCharacters));
 
 // Function to generate password with user input
 function generatePassword() {
-alert(passLength + "at generatePassword")
+
+// elements.join('')
 //return "pa55word123";
 }
 
