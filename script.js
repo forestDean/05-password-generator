@@ -109,16 +109,16 @@ var upperCasedCharacters = [
 //var passLength;
 function getPasswordOptions() {
   var passLength = prompt("How many characters do you want in your password?\nMinimum 8 but we recommend over 12");
-//switch...
+
 //CHECK over 8
-  while (isNaN(passLength)) {
+  if (isNaN(passLength)) {
     prompt("That wasn't a number ...try again!\nHow many characters do you want in your password?\nMinimum 8 but we recommend over 12");
     break;
-  }
+  } else if (too low/high) {}
   confirm(passLength);
 
   //var passSpecial = prompt("Would you like to use Special Characters? Y/N");
-
+  //switch... case Y||y and N||n
   // while (!isNaN(passSpecial)) {
   //   prompt("That wasn't Y/N ...try again!\nWould you like to use Special Characters? Y/N ");
   // }
