@@ -117,6 +117,7 @@ button[disabled] {
   float: right;
 }
 
+/* Test for 128 characters */
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -132,11 +133,13 @@ button[disabled] {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
-  border-radius: 6px;
+  /* border: 2px dashed #c0c7cf; */
+  border: 2px dashed rgba(85, 107, 47, 0.3);
   resize: none;
   overflow: hidden;
 }
+
+/* Responsive design - Desktop first */
 
 @media (max-width: 690px) {
   .btn {
