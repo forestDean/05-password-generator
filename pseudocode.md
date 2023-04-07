@@ -1,0 +1,28 @@
+# 05 Password Generator
+
+- on *Start* click
+- get var **password length**
+- validate min/max length, number
+- 
+- get var **special characters** Y/N
+- validate letter
+- 
+- get var **number characters** Y/N
+- validate letter
+- 
+- get var **lowercase characters** Y/N
+- validate letter
+- 
+- get var **uppercase characters** Y/N
+- validate letter
+- 
+- on *Generate* click
+- create **password array**
+- for each character:
+    - random select character type
+    - random select character
+    - push to array
+- display password as compiled string
+- set copy on click
+- 
+- <mark>check responsive display</mark>
