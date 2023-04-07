@@ -85,14 +85,14 @@ header {
   border: none;
   /* background-color: hsl(360, 91%, 36%); */
   background-color: var(--forestGreen);
-  border-radius: 25px;
+  /* border-radius: 25px; */
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
   color: hsl(0, 0%, 100%);
   display: inline-block;
   font-size: 22px;
   line-height: 22px;
-  margin: 16px 16px 16px 20px;
+  margin: 16px;
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
@@ -101,6 +101,16 @@ header {
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
+}
+
+#start{
+  border-radius: 25px 0 0 25px;
+  margin-right: 2px; 
+}
+
+#generate {
+  border-radius: 0 25px 25px 0;
+  margin-left: 2px;
 }
 
 .float-right {
