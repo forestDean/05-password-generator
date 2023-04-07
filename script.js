@@ -113,8 +113,11 @@ function getPasswordOptions() {
 //CHECK over 8
   if (isNaN(passLength)) {
     prompt("That wasn't a number ...try again!\nHow many characters do you want in your password?\nMinimum 8 but we recommend over 12");
-    break;
-  } else if (too low/high) {}
+    //break;
+  // At least 8 characters but no more than 128
+  } else if (too low/high) {
+    
+  }
   confirm(passLength);
 
   //var passSpecial = prompt("Would you like to use Special Characters? Y/N");
