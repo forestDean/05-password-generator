@@ -110,18 +110,25 @@ var charChoice = [];
 var input;
 function getPasswordOptions() {
   // Password Length
-  var passLength = prompt("How many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");
-  if (isNaN(passLength)) {
-    prompt("That wasn't a number ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");
-  // At least 8 characters but no more than 128
-  } else if (passLength < 8) {
-    prompt("That number was too low ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");  
-  } else if (passLength > 128) {
-    prompt("That number was too high ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");
-  } else {
-    console.log(passLength);
-    // ** not looping **
-  };
+   // var passLength = prompt("How many characters do you want in your password?\nChoose a number between 8 and 128\nWe recommend 12 to 16");
+
+  do {
+    var passLength = prompt("How many characters do you want in your password?\nChoose a number between 8 and 128\nWe recommend 12 to 16");
+  }
+  while (passLength < 8 || passLength > 128);
+
+  // if (isNaN(passLength)) {
+  //   prompt("That wasn't a number ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");
+  // // At least 8 characters but no more than 128
+  // } else if (passLength < 8) {
+  //   prompt("That number was too low ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");  
+  // } else if (passLength > 128) {
+  //   prompt("That number was too high ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");
+  // } else {
+     console.log(passLength);
+  //   // ** not looping **
+  //   // return; ??
+  // };
 
 
   // Lowercase"
@@ -131,12 +138,7 @@ function getPasswordOptions() {
   // Special Characters"
   var charName = "Special Characters";
   validateChar(charName);
-  // var input = prompt("Would you like to use " + charName + "? Y/N");
-  // if (validateChar(input,charName) === true) {
-  //   charChoice.push(charName);
-  //   console.log(charChoice);
-  //   console.log("---" + charName + "---");
-  // }
+
 
 
   ///if all above false ...the password will be UPPERCASE
@@ -157,6 +159,7 @@ function validateChar(charName) {
   } else {
     prompt("Sorry ...I didn't understand your answer.\nWould you like to use Special Characters? Y/N");
     // ** not looping **
+    // return; ?? or var input; global
   }
 }
 
