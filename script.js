@@ -103,16 +103,16 @@ var upperCasedCharacters = [
 //     or written to the page
 //  =============================================================================================
 
-//break;
-//alert("start")
 // Function to prompt user for password options
-//var passLength;
+// var charName;
+// var passSpecial;
+var charChoice = [];
+var input;
 function getPasswordOptions() {
+  // Password Length
   var passLength = prompt("How many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");
-
   if (isNaN(passLength)) {
     prompt("That wasn't a number ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");
-    //break;
   // At least 8 characters but no more than 128
   } else if (passLength < 8) {
     prompt("That number was too low ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");  
@@ -120,57 +120,42 @@ function getPasswordOptions() {
     prompt("That number was too high ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");
   } else {
     console.log(passLength);
-    console.log(passSpecial);
-    //return passLength;
-    //confirm(passLength);
+    // ** not looping **
   };
 
-  //confirm(passLength);
-
-  var passSpecial = prompt("Would you like to use Special Characters? Y/N");
-  var passSpecial = "y";
-  if (passSpecial === "Y" || passSpecial === "y") {
-    passSpecial = true;
-    console.log(passSpecial);
-  } else if (passSpecial === "N" || passSpecial === "n") {
-    passSpecial = false;
-    console.log(passSpecial);
-  } else {
-    //prompt("Sorry ...I didn't understand your answer.\nWould you like to use Special Characters? Y/N");
-    console.log("Sorry ...I didn't understand your answer.\nWould you like to use Special Characters? Y/N");
+  // Special Characters"
+  var charName = "Special Characters";
+  var input = prompt("Would you like to use " + charName + "? Y/N");
+  if (validateChar(input,charName) === true) {
+    charChoice.push(charName);
+    console.log(charChoice);
+    console.log("---" + charName + "---");
   }
 
-
-  // switch (passSpecial) {
-  //   case "Y":
-  //     passSpecial = true;
-  //     console.log(passSpecial);
-  //     break; 
-  //   case "N":
-  //     passSpecial = false;
-  //     break; 
-  //   default:
-  //     prompt("Sorry ...I didn't understand your answer.\nWould you like to use Special Characters? Y/N");
-  // }
-
-
-  // while (!isNaN(passSpecial)) {
-  //   prompt("That wasn't Y/N ...try again!\nWould you like to use Special Characters? Y/N ");
-  // }
-  // passSpecial = passSpecial.toUpperCase();
-  // // while condition not correct
-  // //while  ((passSpecial !== Y || N) && (!isNaN(passSpecial))) {
-    
-  // while  (passSpecial !== Y || N) {
-  //   prompt("That wasn't Y/N ...try again!\nWould you like to use Special Characters? Y/N ");
-  // }
-  // confirm(passSpecial.toString());
 
   ///if all above false ...the password will be UPPERCASE
   //return chosenChar;
   //return passLength;
 
 }
+
+// Function for validating character choices
+function validateChar(input,charName) {
+  if (input === "Y" || input === "y") {
+    input = true;
+    console.log("validateCharExt: " + input);
+    return input;
+  } else if (input === "N" || input === "n") {
+    input = false;
+    console.log("validateCharExt: " + input);
+    return input;
+  } else {
+    //prompt("Sorry ...I didn't understand your answer.\nWould you like to use Special Characters? Y/N");
+    console.log("Sorry ...I didn't understand your answer.\nWould you like to use " +charName +"? Y/N");
+  }
+  //return input;
+}
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
