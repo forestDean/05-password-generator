@@ -120,16 +120,40 @@ function getPasswordOptions() {
     prompt("That number was too high ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");
   } else {
     console.log(passLength);
-    return passLength;
+    console.log(passSpecial);
+    //return passLength;
     //confirm(passLength);
-    //continue;
-
   };
 
-  confirm(passLength);
+  //confirm(passLength);
 
   var passSpecial = prompt("Would you like to use Special Characters? Y/N");
-  //switch... case Y||y and N||n
+  var passSpecial = "y";
+  if (passSpecial === "Y" || passSpecial === "y") {
+    passSpecial = true;
+    console.log(passSpecial);
+  } else if (passSpecial === "N" || passSpecial === "n") {
+    passSpecial = false;
+    console.log(passSpecial);
+  } else {
+    //prompt("Sorry ...I didn't understand your answer.\nWould you like to use Special Characters? Y/N");
+    console.log("Sorry ...I didn't understand your answer.\nWould you like to use Special Characters? Y/N");
+  }
+
+
+  // switch (passSpecial) {
+  //   case "Y":
+  //     passSpecial = true;
+  //     console.log(passSpecial);
+  //     break; 
+  //   case "N":
+  //     passSpecial = false;
+  //     break; 
+  //   default:
+  //     prompt("Sorry ...I didn't understand your answer.\nWould you like to use Special Characters? Y/N");
+  // }
+
+
   // while (!isNaN(passSpecial)) {
   //   prompt("That wasn't Y/N ...try again!\nWould you like to use Special Characters? Y/N ");
   // }
@@ -143,6 +167,8 @@ function getPasswordOptions() {
   // confirm(passSpecial.toString());
 
   ///if all above false ...the password will be UPPERCASE
+  //return chosenChar;
+  //return passLength;
 
 }
 
