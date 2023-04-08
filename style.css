@@ -137,6 +137,7 @@ button[disabled] {
   border: 2px dashed rgba(85, 107, 47, 0.3);
   resize: none;
   overflow: hidden;
+  /* user-select: all; */
 }
 
 /* Responsive design - Desktop first */
