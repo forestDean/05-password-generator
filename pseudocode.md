@@ -6,15 +6,20 @@
 - 
 - get var **special characters** Y/N
 - validate Y/N
+- if *true* push to character type array
 - 
 - get var **number characters** Y/N
 - validate Y/N
+- if *true* push to character type array
 - 
 - get var **lowercase characters** Y/N
 - validate Y/N
+- if *true* push to character type array
 - 
 - get var **uppercase characters** Y/N
+- if all previous *false* - alert password is uppercase
 - validate Y/N
+- if *true* push to character type array
 - 
 - on *Generate* click
 - create **password array**
