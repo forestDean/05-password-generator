@@ -123,14 +123,20 @@ function getPasswordOptions() {
     // ** not looping **
   };
 
+
+  // Lowercase"
+  var charName = "Lowercase";
+  validateChar(charName);
+
   // Special Characters"
   var charName = "Special Characters";
-  var input = prompt("Would you like to use " + charName + "? Y/N");
-  if (validateChar(input,charName) === true) {
-    charChoice.push(charName);
-    console.log(charChoice);
-    console.log("---" + charName + "---");
-  }
+  validateChar(charName);
+  // var input = prompt("Would you like to use " + charName + "? Y/N");
+  // if (validateChar(input,charName) === true) {
+  //   charChoice.push(charName);
+  //   console.log(charChoice);
+  //   console.log("---" + charName + "---");
+  // }
 
 
   ///if all above false ...the password will be UPPERCASE
@@ -140,20 +146,18 @@ function getPasswordOptions() {
 }
 
 // Function for validating character choices
-function validateChar(input,charName) {
+function validateChar(charName) {
+  var input = prompt("Would you like to use " + charName + "? Y/N");
   if (input === "Y" || input === "y") {
-    input = true;
-    console.log("validateCharExt: " + input);
-    return input;
+    charChoice.push(charName);
+    console.log(charChoice);
   } else if (input === "N" || input === "n") {
     input = false;
     console.log("validateCharExt: " + input);
-    return input;
   } else {
-    //prompt("Sorry ...I didn't understand your answer.\nWould you like to use Special Characters? Y/N");
-    console.log("Sorry ...I didn't understand your answer.\nWould you like to use " +charName +"? Y/N");
+    prompt("Sorry ...I didn't understand your answer.\nWould you like to use Special Characters? Y/N");
+    // ** not looping **
   }
-  //return input;
 }
 
 
