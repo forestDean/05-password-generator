@@ -1,28 +1,6 @@
 // Array of special characters to be included in password
 var specialCharacters = [
-  '@',
-  '%',
-  '+',
-  '\\',
-  '/',
-  "'",
-  '!',
-  '#',
-  '$',
-  '^',
-  '?',
-  ':',
-  ',',
-  ')',
-  '(',
-  '}',
-  '{',
-  ']',
-  '[',
-  '~',
-  '-',
-  '_',
-  '.'
+  '@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')','(','}',	'{',']','[','~','-','_','.'
 ];
 
 // Array of numeric characters to be included in password
@@ -30,62 +8,12 @@ var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 // Array of lowercase characters to be included in password
 var lowerCasedCharacters = [
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'l',
-  'm',
-  'n',
-  'o',
-  'p',
-  'q',
-  'r',
-  's',
-  't',
-  'u',
-  'v',
-  'w',
-  'x',
-  'y',
-  'z'
+  'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'
 ];
 
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z'
+'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
 ];
 
 //  =============================================================================================
@@ -121,8 +49,16 @@ function getPasswordOptions() {
   var charName = "Lowercase";
   validateChar(charName);
 
+  // Uppercase
+  var charName = "Uppercase";
+  validateChar(charName);
+
+  // Numeric
+  var charName = "Numeric";
+  validateChar(charName);
+
   // Special Characters
-  var charName = "Special Characters";
+  var charName = "Special";
   validateChar(charName);
 
 
@@ -135,20 +71,26 @@ function getPasswordOptions() {
 
 // Function for validating character choices
 function validateChar(charName) {
-  do {
-    var input = prompt("Would you like to use " + charName + "? Y/N");
-    input = input.toUpperCase();
-    console.log(input);
-  }
-  while ((input !== "Y") && (input != "N")); // check notEqual
+  var i = 0;
+  if (i = 3) {
+    alert("Your password will be all Special Characters.");
+    charChoice.push("Special");
+  } else {}
+    do {
+      var input = prompt("Would you like to use " + charName + " Characters? Y/N");
+      input = input.toUpperCase();
+      console.log(input);
+    }
+    while ((input !== "Y") && (input != "N")); // *check notEqual
 
-  if (input === "Y") {
-    charChoice.push(charName);
-    console.log(charChoice);
-  } else {
-    input = false;
-    console.log("validateCharExt: " + input);
-  }
+    if (input === "Y") {
+      charChoice.push(charName);
+      console.log(charChoice);
+    } else {
+      input = false;
+      i++;
+      console.log("validateCharExt: " + input + i);
+    }
 }
 
 
@@ -173,8 +115,8 @@ var startBtn = document.querySelector('#start');
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
-//getPasswordOptions();
 //this.style.backgroundColor = "green";
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -191,3 +133,4 @@ generateBtn.addEventListener('click', writePassword);
 
 
 // password copy all on click
+// css: user-select: all;
