@@ -109,25 +109,40 @@ var upperCasedCharacters = [
 var charChoice = [];
 var input;
 function getPasswordOptions() {
-
   // Password Length
+   // var passLength = prompt("How many characters do you want in your password?\nChoose a number between 8 and 128\nWe recommend 12 to 16");
+
   do {
     var passLength = prompt("How many characters do you want in your password?\nChoose a number between 8 and 128\nWe recommend 12 to 16");
   }
   while (passLength < 8 || passLength > 128 || isNaN(passLength));
   console.log(passLength);
 
-  // Lowercase
+  // if (isNaN(passLength)) {
+  //   prompt("That wasn't a number ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");
+  // // At least 8 characters but no more than 128
+  // } else if (passLength < 8) {
+  //   prompt("That number was too low ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");  
+  // } else if (passLength > 128) {
+  //   prompt("That number was too high ...try again!\nHow many characters do you want in your password?\nChoose between 8 and 128\nWe recommend 12 to 16");
+  // } else {
+   //  console.log(passLength);
+  //   // ** not looping **
+  //   // return; ??
+  // };
+
+
+  // Lowercase"
   var charName = "Lowercase";
   validateChar(charName);
 
-  // Special Characters
+  // Special Characters"
   var charName = "Special Characters";
   validateChar(charName);
 
 
 
-  //if all above false [charChoice empty] ...the password will be LAST CHOICE
+  ///if all above false ...the password will be UPPERCASE
   //return chosenChar;
   //return passLength;
 
@@ -135,19 +150,17 @@ function getPasswordOptions() {
 
 // Function for validating character choices
 function validateChar(charName) {
-  do {
-    var input = prompt("Would you like to use " + charName + "? Y/N");
-    input = input.toUpperCase();
-    console.log(input);
-  }
-  while ((input !== "Y") && (input != "N")); // check notEqual
-
-  if (input === "Y") {
+  var input = prompt("Would you like to use " + charName + "? Y/N");
+  if (input === "Y" || input === "y") {
     charChoice.push(charName);
     console.log(charChoice);
-  } else {
+  } else if (input === "N" || input === "n") {
     input = false;
     console.log("validateCharExt: " + input);
+  } else {
+    prompt("Sorry ...I didn't understand your answer.\nWould you like to use Special Characters? Y/N");
+    // ** not looping **
+    // return; ?? or var input; global
   }
 }
 
