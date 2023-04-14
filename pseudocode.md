@@ -4,7 +4,11 @@
 - get var **password length**
 - validate min/max length, number
 - 
-- get var **special characters** Y/N
+- get var **lowercase characters** Y/N
+- validate Y/N
+- if *true* push to character type array
+- 
+- get var **uppercase characters** Y/N
 - validate Y/N
 - if *true* push to character type array
 - 
@@ -12,12 +16,9 @@
 - validate Y/N
 - if *true* push to character type array
 - 
-- get var **lowercase characters** Y/N
-- validate Y/N
-- if *true* push to character type array
-- 
-- get var **uppercase characters** Y/N
-- if all previous *false* - alert password is uppercase
+- if all previous *false* 
+    - alert password is **special characters**
+- get var **special characters** Y/N
 - validate Y/N
 - if *true* push to character type array
 - 
@@ -28,7 +29,7 @@
     - random select character
     - push to array
 - display password as compiled string
-- set copy on click
+- select all on click
 - 
 - <mark>check responsive display</mark>
 - check 128 characters

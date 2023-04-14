@@ -70,12 +70,13 @@ function getPasswordOptions() {
 }
 
 // Function for validating character choices
-function validateChar(charName) {
-  var i = 0;
-  if (i = 3) {
+var i = 0;
+function validateChar(charName) { 
+  console.log("here: " + i);
+  if (i > 2) {
     alert("Your password will be all Special Characters.");
     charChoice.push("Special");
-  } else {}
+  } else {
     do {
       var input = prompt("Would you like to use " + charName + " Characters? Y/N");
       input = input.toUpperCase();
@@ -91,6 +92,7 @@ function validateChar(charName) {
       i++;
       console.log("validateCharExt: " + input + i);
     }
+  }
 }
 
 
