@@ -26,6 +26,8 @@ var specialCharacters = {
     select: false
 };
 
+var charSets = [];
+
 //  =============================================================================================
 // * Generate a password when the button is clicked
 //   * Present a series of prompts for password criteria
@@ -46,6 +48,7 @@ var specialCharacters = {
 // var passSpecial;
 var charChoice = [];
 var input;
+var passLength;
 function getPasswordOptions() {
 
   // Password Length
@@ -86,9 +89,6 @@ function getPasswordOptions() {
 
 
 
-
-
-
 // Function for validating character choices
 var i = 0;
 var charChoice; // make global
@@ -96,7 +96,6 @@ function validateChar(charName,charSelect) {
   console.log("here: " + i);
   if (i > 2) {
     alert("Your password will be all Special Characters.");
-    //charChoice.push("Special");
     specialCharacters.select = true;
     console.log("specialCharacters.select: " + specialCharacters.select);
   } else {
@@ -108,10 +107,10 @@ function validateChar(charName,charSelect) {
     while ((input != "Y") && (input != "N")); // *check notEqual
 
     if (input === "Y") {
-      //charChoice.push("'" + charName + "'");
-      //charChoice.push(charName);
       this.select = true;
       console.log(charName + ": " + this.select);
+      charSets.push(charName);
+      console.log("charSets: " + charSets);
     } else {
       this.select = false;
       i++;
@@ -120,34 +119,45 @@ function validateChar(charName,charSelect) {
   }
 }
 
+
+
 // Function for getting a random element from an array
 function getRandom(arr) {
   return arr[Math.floor(Math.random() * (arr.length))];
 } 
 
-// https://stackoverflow.com/questions/5613834/convert-string-to-variable-name-in-javascript
-// https://stackoverflow.com/questions/64702041/set-string-to-variable-name
+
+
+// https://www.tutorialrepublic.com/faq/how-to-find-an-object-by-property-value-in-an-array-of-javascript-objects.php
 // Function to generate password with user input
 var passWord = [];
 var charSelect;
 var keySelect;
+
 function generatePassword() {
-  console.log("charChoice: " + charChoice);
-  var charSelect = getRandom(charChoice);
-   // charSelect is String
+  // *iterate number of times given by var passLength
+  //for (var i = 0; i < passLength; i++) {
+
+  charSelect = getRandom(charSets);
   console.log("charSelect : " + charSelect + " is " + (typeof charSelect));
-  // console.log(charSelect[0]);
-  // console.log(charSelect[1]);
-  // console.log("charSelect : " + charSelect.length);
-  // keySelect = getRandom(Special); // this works!
-  keySelect = getRandom(charSelect);
+  //console.log("charChoice: " + charChoice);
+// Get the Array item which matchs the id "2"
+  // var result = myArray.find(item => item.name === charSelect);
+  // console.log(result.name);  // Prints: Peter
+
+  //keySelect = getRandom(Special); // this works!
+  //keySelect = getRandom(charSelect);
   //var keySelect = getRandom(getRandom(charSelect));
-  console.log("keySelect: " + keySelect);
+  //console.log("keySelect: " + keySelect);
 
-// elements.join('')
-//return "pa55word123";
+  //passComp.push(keySelect);
+
+ // }
+
+  // passComp.join('')
+  //return "pa55word123";
+  
 }
-
 // Get references to the #start element
 var startBtn = document.querySelector('#start');
 
