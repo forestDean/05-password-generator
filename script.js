@@ -31,12 +31,6 @@ var passChar = [
     select: false
     },
 ]
-console.log(passChar[0]);
-console.log(passChar[1]);
-console.log(passChar[2]);
-console.log(passChar[3]);
-//console.log(passChar[1][3]);
-
 
 //  =============================================================================================
 // * Generate a password when the button is clicked
@@ -54,16 +48,14 @@ console.log(passChar[3]);
 //  =============================================================================================
 
 // Function to prompt user for password options
-// var charName;
-// var passSpecial;
 var charChoice = [];
 var input;
-var passLength; // global
+var passLength = 8; // global
 function getPasswordOptions() {
 
   // Password Length
   do {
-    var passLength = prompt("How many characters do you want in your password?\nChoose a number between 8 and 128\nWe recommend 12 to 16");
+    passLength = prompt("How many characters do you want in your password?\nChoose a number between 8 and 128\nWe recommend 12 to 16");
   }
   while (passLength < 8 || passLength > 128 || isNaN(passLength));
   console.log("passLength: " + passLength);
@@ -73,7 +65,7 @@ function getPasswordOptions() {
     charName = passChar[i].name;
     validateChar(charName);
   }
-  return passLength;
+
 }
 
 // Function for validating character choices
@@ -81,7 +73,6 @@ var i = 0;
 var charSets = [];
 var charChoice; // make global
 function validateChar(charName) { 
-  console.log("here: " + i);
   if (i > 2) {
     alert("Your password will be all Special Characters.");
     passChar[3].select = true;
@@ -119,16 +110,14 @@ function getRandom(arr) {
 // https://www.tutorialrepublic.com/faq/how-to-find-an-object-by-property-value-in-an-array-of-javascript-objects.php
 // https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/
 // Function to generate password with user input
-
-var passComp = [];
-var charSelect;
-var keySelect;
-//var charSetsX;
+var passComp = "";
+var charSelect; // declare locally
+var keySelect; // declare locally
 function generatePassword() {
-  // *iterate number of times given by var passLength
-  //var passWord = "";
- // for (var i = 0; i < passLength; i++) {
-  console.log("passLength: " + passLength); //undefined!!
+  // *iterate number of times given by var passLength in prompt
+  console.log("passLength3: " + passLength);
+  for (var i = 0; i < passLength; i++) {
+  console.log(i+1 + " /passLength: " + passLength); //undefined!!
   charSelect = getRandom(charSets);
   console.log("charSelect : " + charSelect + " is " + (typeof charSelect));
   charThis = passChar.find(item => item.name === charSelect); // change arrow to function()
@@ -137,9 +126,8 @@ function generatePassword() {
   console.log("keySelect: " + keySelect);
 
   passComp += keySelect;
-  //passComp.push(keySelect);
 
- //}
+ }
 
   //console.log("password: " + password);
   console.log("passComp: " + passComp);
