@@ -36,7 +36,7 @@ console.log(passChar[1]);
 console.log(passChar[2]);
 console.log(passChar[3]);
 //console.log(passChar[1][3]);
-var charSets = [];
+
 
 //  =============================================================================================
 // * Generate a password when the button is clicked
@@ -58,7 +58,7 @@ var charSets = [];
 // var passSpecial;
 var charChoice = [];
 var input;
-var passLength;
+var passLength; // global
 function getPasswordOptions() {
 
   // Password Length
@@ -66,25 +66,27 @@ function getPasswordOptions() {
     var passLength = prompt("How many characters do you want in your password?\nChoose a number between 8 and 128\nWe recommend 12 to 16");
   }
   while (passLength < 8 || passLength > 128 || isNaN(passLength));
-  console.log(passLength);
+  console.log("passLength: " + passLength);
 
   // iterate through character sets & validate...
   for (var i = 0; i < passChar.length; i++) {
     charName = passChar[i].name;
     validateChar(charName);
   }
-
+  return passLength;
 }
 
 // Function for validating character choices
 var i = 0;
+var charSets = [];
 var charChoice; // make global
 function validateChar(charName) { 
   console.log("here: " + i);
   if (i > 2) {
     alert("Your password will be all Special Characters.");
     passChar[3].select = true;
-    console.log("specialCharacters.select: " + specialCharacters.select);
+    console.log("specialCharacters.select: " + passChar[3].select);
+    charSets.push(charName);
   } else {
     do {
       var input = prompt("Would you like to use " + charName + " Characters? Y/N");
@@ -117,32 +119,30 @@ function getRandom(arr) {
 // https://www.tutorialrepublic.com/faq/how-to-find-an-object-by-property-value-in-an-array-of-javascript-objects.php
 // https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/
 // Function to generate password with user input
-var passWord = [];
+
+var passComp = [];
 var charSelect;
 var keySelect;
-
+//var charSetsX;
 function generatePassword() {
   // *iterate number of times given by var passLength
-  for (var i = 0; i < passLength; i++) {
-  //charSelect = getRandom(charSets);
-  charSets = myArray.find(item => item.name === charSelect);
-  console.log(result.select);
+  //var passWord = "";
+ // for (var i = 0; i < passLength; i++) {
+  console.log("passLength: " + passLength); //undefined!!
+  charSelect = getRandom(charSets);
+  console.log("charSelect : " + charSelect + " is " + (typeof charSelect));
+  charThis = passChar.find(item => item.name === charSelect); // change arrow to function()
+  console.log(charThis.characters);
+  keySelect = getRandom(charThis.characters);
+  console.log("keySelect: " + keySelect);
 
-  //console.log("charSelect : " + charSelect + " is " + (typeof charSelect));
-  //console.log("charChoice: " + charChoice);
-  // Get the Array item which matchs the id "2"
-  // var result = passChar.find(item => item.select === true);
-  // console.log(result.name);  // Prints: Peter
-
-  //keySelect = getRandom(Special); // this works!
-  //keySelect = getRandom(charSelect);
-  //var keySelect = getRandom(getRandom(charSelect));
-  //console.log("keySelect: " + keySelect);
-
+  passComp += keySelect;
   //passComp.push(keySelect);
 
- }
+ //}
 
+  //console.log("password: " + password);
+  console.log("passComp: " + passComp);
   // passComp.join('')
   //return "pa55word123";
   
