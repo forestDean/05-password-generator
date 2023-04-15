@@ -91,7 +91,7 @@ function validateChar(charName) {
 
     if (input === "Y") {
       //charChoice.push("'" + charName + "'");
-      charChoice.push("'" + charName + "'");
+      charChoice.push(charName);
       console.log("charChoice: " + charChoice);
     } else {
       input = false;
@@ -101,10 +101,15 @@ function validateChar(charName) {
   }
 }
 
+
 // Function for getting a random element from an array
 function getRandom(arr) {
-  return arr[Math.floor(Math.random() * (arr.length))];
+  return arr[Math.floor(Math.random() * (arr.length -1))];
 } 
+// console.log(getRandom(specialCharacters ));
+// console.log(getRandom(numericCharacters));
+// console.log(getRandom(lowerCasedCharacters));
+// console.log(getRandom(upperCasedCharacters));
 
 // https://stackoverflow.com/questions/5613834/convert-string-to-variable-name-in-javascript
 // https://stackoverflow.com/questions/64702041/set-string-to-variable-name
@@ -113,15 +118,10 @@ var passWord = [];
 var charSelect;
 var keySelect;
 function generatePassword() {
-  console.log("charChoice: " + charChoice);
-  var charSelect = getRandom(charChoice);
+   var charSelect = getRandom(charChoice);
    // charSelect is String
-  console.log("charSelect : " + charSelect + " is " + (typeof charSelect));
-  console.log(charSelect[0]);
-  console.log(charSelect[1]);
-  console.log("charSelect : " + charSelect.length);
-    
-  var keySelect = getRandom(charSelect);
+   console.log("charSelect : " + charSelect + " is " + (typeof charSelect));
+   var keySelect = getRandom(charSelect);
   //var keySelect = getRandom(getRandom(charSelect));
   console.log("keySelect: " + keySelect);
 
