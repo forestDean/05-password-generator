@@ -1,31 +1,41 @@
+var passChar = [
 // Object containing array of lowercase characters to be included in password
-var lowerCasedCharacters = {
+    {
+    id: 'lowerCasedCharacters',
     name: 'Lowercase',
     characters: ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
     select: false
-};
+    },
 
 // Object containing array of uppercase characters to be included in password
-var upperCasedCharacters = {
+    {
+    id: 'upperCasedCharacters',
     name: 'Uppercase',
     characters: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
     select: false
-};
+    },
 
 // Object containing array of numeric characters to be included in password
-var numericCharacters = {
+    {
+    id: 'numericCharacters',
     name: 'Numeric',
     characters: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
     select: false
-};
+    },
 
 // Object containing array of special characters to be included in password
-var specialCharacters = {
+    {
+    id: 'specialCharacters',
     name: 'Special',
     characters: ['@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')','(','}','{',']','[','~','-','_','.'],
     select: false
-};
-
+    },
+]
+console.log(passChar[0]);
+console.log(passChar[1]);
+console.log(passChar[2]);
+console.log(passChar[3]);
+console.log(passChar[1][3]);
 var charSets = [];
 
 //  =============================================================================================
@@ -129,6 +139,7 @@ function getRandom(arr) {
 
 
 // https://www.tutorialrepublic.com/faq/how-to-find-an-object-by-property-value-in-an-array-of-javascript-objects.php
+// https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/
 // Function to generate password with user input
 var passWord = [];
 var charSelect;
