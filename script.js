@@ -56,25 +56,31 @@ function getPasswordOptions() {
   console.log(passLength);
 
   // Lowercase
-  var charName = "Lowercase";
-  validateChar(charName);
+  //var charName = "Lowercase";
+  var charName = lowerCasedCharacters.name;
+  var charSelect = lowerCasedCharacters.select;
+  validateChar(charName,charSelect);
 
   // Uppercase
-  var charName = "Uppercase";
-  validateChar(charName);
+  //var charName = "Uppercase";
+  //var charName = upperCasedCharacters.name;
+  var charName = upperCasedCharacters.name;
+  var charSelect = upperCasedCharacters.select;
+  validateChar(charName,charSelect);
 
   // Numeric
-  var charName = "Numeric";
-  validateChar(charName);
+  //var charName = "Numeric";
+  //var charName = numericCharacters.name;
+  var charName = numericCharacters.name;
+  var charSelect = numericCharacters.select;
+  validateChar(charName,charSelect);
 
   // Special Characters
-  var charName = "Special";
-  validateChar(charName);
-
-  //if all above false [charChoice empty] ...the password will be all LAST CHOICE
-  //return chosenChar;
-  //return passLength;
-  
+  //var charName = "Special";
+  //var charName = specialCharacters.name;
+  var charName = specialCharacters.name;
+  var charSelect = specialCharacters.select;
+  validateChar(charName,charSelect);
 
 }
 
@@ -86,11 +92,13 @@ function getPasswordOptions() {
 // Function for validating character choices
 var i = 0;
 var charChoice; // make global
-function validateChar(charName) { 
+function validateChar(charName,charSelect) { 
   console.log("here: " + i);
   if (i > 2) {
     alert("Your password will be all Special Characters.");
-    charChoice.push("Special");
+    //charChoice.push("Special");
+    specialCharacters.select = true;
+    console.log("specialCharacters.select: " + specialCharacters.select);
   } else {
     do {
       var input = prompt("Would you like to use " + charName + " Characters? Y/N");
@@ -101,12 +109,13 @@ function validateChar(charName) {
 
     if (input === "Y") {
       //charChoice.push("'" + charName + "'");
-      charChoice.push(charName);
-      console.log("charChoice: " + charChoice);
+      //charChoice.push(charName);
+      this.select = true;
+      console.log(charName + ": " + this.select);
     } else {
-      input = false;
+      this.select = false;
       i++;
-      console.log("validateCharExt: " + input + i);
+      console.log(charName + ": " + this.select + i);
     }
   }
 }
