@@ -1,20 +1,30 @@
-// Array of special characters to be included in password
-var Special = [
-  '@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')','(','}',	'{',']','[','~','-','_','.'
-];
+// Object containing array of lowercase characters to be included in password
+var lowerCasedCharacters = {
+    name: 'Lowercase',
+    characters: ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
+    select: false
+};
 
-// Array of numeric characters to be included in password
-var Numeric = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+// Object containing array of uppercase characters to be included in password
+var upperCasedCharacters = {
+    name: 'Uppercase',
+    characters: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
+    select: false
+};
 
-// Array of lowercase characters to be included in password
-var isLowercase = [
-  'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'
-];
+// Object containing array of numeric characters to be included in password
+var numericCharacters = {
+    name: 'Numeric',
+    characters: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+    select: false
+};
 
-// Array of uppercase characters to be included in password
-var Uppercase = [
-'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
-];
+// Object containing array of special characters to be included in password
+var specialCharacters = {
+    name: 'Special',
+    characters: ['@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')','(','}','{',']','[','~','-','_','.'],
+    select: false
+};
 
 //  =============================================================================================
 // * Generate a password when the button is clicked
@@ -87,11 +97,11 @@ function validateChar(charName) {
       input = input.toUpperCase();
       console.log(input);
     }
-    while ((input !== "Y") && (input != "N")); // *check notEqual
+    while ((input != "Y") && (input != "N")); // *check notEqual
 
     if (input === "Y") {
       //charChoice.push("'" + charName + "'");
-      charChoice.push("'" + charName + "'");
+      charChoice.push(charName);
       console.log("charChoice: " + charChoice);
     } else {
       input = false;
@@ -117,11 +127,11 @@ function generatePassword() {
   var charSelect = getRandom(charChoice);
    // charSelect is String
   console.log("charSelect : " + charSelect + " is " + (typeof charSelect));
-  console.log(charSelect[0]);
-  console.log(charSelect[1]);
-  console.log("charSelect : " + charSelect.length);
-    
-  var keySelect = getRandom(charSelect);
+  // console.log(charSelect[0]);
+  // console.log(charSelect[1]);
+  // console.log("charSelect : " + charSelect.length);
+  // keySelect = getRandom(Special); // this works!
+  keySelect = getRandom(charSelect);
   //var keySelect = getRandom(getRandom(charSelect));
   console.log("keySelect: " + keySelect);
 
