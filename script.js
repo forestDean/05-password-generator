@@ -35,7 +35,7 @@ console.log(passChar[0]);
 console.log(passChar[1]);
 console.log(passChar[2]);
 console.log(passChar[3]);
-console.log(passChar[1][3]);
+//console.log(passChar[1][3]);
 var charSets = [];
 
 //  =============================================================================================
@@ -68,45 +68,22 @@ function getPasswordOptions() {
   while (passLength < 8 || passLength > 128 || isNaN(passLength));
   console.log(passLength);
 
-  // Lowercase
-  //var charName = "Lowercase";
-  var charName = lowerCasedCharacters.name;
-  var charSelect = lowerCasedCharacters.select;
-  validateChar(charName,charSelect);
-
-  // Uppercase
-  //var charName = "Uppercase";
-  //var charName = upperCasedCharacters.name;
-  var charName = upperCasedCharacters.name;
-  var charSelect = upperCasedCharacters.select;
-  validateChar(charName,charSelect);
-
-  // Numeric
-  //var charName = "Numeric";
-  //var charName = numericCharacters.name;
-  var charName = numericCharacters.name;
-  var charSelect = numericCharacters.select;
-  validateChar(charName,charSelect);
-
-  // Special Characters
-  //var charName = "Special";
-  //var charName = specialCharacters.name;
-  var charName = specialCharacters.name;
-  var charSelect = specialCharacters.select;
-  validateChar(charName,charSelect);
+  // iterate through character sets & validate...
+  for (var i = 0; i < passChar.length; i++) {
+    charName = passChar[i].name;
+    validateChar(charName);
+  }
 
 }
-
-
 
 // Function for validating character choices
 var i = 0;
 var charChoice; // make global
-function validateChar(charName,charSelect) { 
+function validateChar(charName) { 
   console.log("here: " + i);
   if (i > 2) {
     alert("Your password will be all Special Characters.");
-    specialCharacters.select = true;
+    passChar[3].select = true;
     console.log("specialCharacters.select: " + specialCharacters.select);
   } else {
     do {
@@ -130,7 +107,6 @@ function validateChar(charName,charSelect) {
 }
 
 
-
 // Function for getting a random element from an array
 function getRandom(arr) {
   return arr[Math.floor(Math.random() * (arr.length))];
@@ -147,13 +123,15 @@ var keySelect;
 
 function generatePassword() {
   // *iterate number of times given by var passLength
-  //for (var i = 0; i < passLength; i++) {
+  for (var i = 0; i < passLength; i++) {
+  //charSelect = getRandom(charSets);
+  charSets = myArray.find(item => item.name === charSelect);
+  console.log(result.select);
 
-  charSelect = getRandom(charSets);
-  console.log("charSelect : " + charSelect + " is " + (typeof charSelect));
+  //console.log("charSelect : " + charSelect + " is " + (typeof charSelect));
   //console.log("charChoice: " + charChoice);
-// Get the Array item which matchs the id "2"
-  // var result = myArray.find(item => item.name === charSelect);
+  // Get the Array item which matchs the id "2"
+  // var result = passChar.find(item => item.select === true);
   // console.log(result.name);  // Prints: Peter
 
   //keySelect = getRandom(Special); // this works!
@@ -163,12 +141,14 @@ function generatePassword() {
 
   //passComp.push(keySelect);
 
- // }
+ }
 
   // passComp.join('')
   //return "pa55word123";
   
 }
+
+
 // Get references to the #start element
 var startBtn = document.querySelector('#start');
 
