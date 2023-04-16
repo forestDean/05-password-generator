@@ -151,7 +151,3 @@ startBtn.addEventListener('click', getPasswordOptions);
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-
-// password copy all on click
-// css: user-select: all;
