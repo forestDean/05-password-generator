@@ -48,11 +48,8 @@ var passChar = [
 //  =============================================================================================
 
 // Function to prompt user for password options
-var charChoice = [];
-var input;
-var passLength = 8; // global
+var passLength = 8; // global - set at minimum
 function getPasswordOptions() {
-
   // Password Length
   do {
     passLength = prompt("How many characters do you want in your password?\nChoose a number between 8 and 128\nWe recommend 12 to 16");
@@ -65,38 +62,37 @@ function getPasswordOptions() {
     charName = passChar[i].name;
     validateChar(charName);
   }
-
 }
 
 // Function for validating character choices
-var i = 0;
-var charSets = [];
-var charChoice; // make global
+var charSets = []; // global
 function validateChar(charName) { 
+  var input;
+  var i = 0;
   if (i > 2) {
     alert("Your password will be all Special Characters.");
     passChar[3].select = true;
-    console.log("specialCharacters.select: " + passChar[3].select);
     charSets.push(charName);
   } else {
     do {
       var input = prompt("Would you like to use " + charName + " Characters? Y/N");
       input = input.toUpperCase();
-      console.log(input);
+      // console.log(input);
     }
     while ((input != "Y") && (input != "N")); // *check notEqual
 
     if (input === "Y") {
       this.select = true;
-      console.log(charName + ": " + this.select);
+      // console.log(charName + ": " + this.select);
       charSets.push(charName);
-      console.log("charSets: " + charSets);
+      // console.log("charSets: " + charSets);
     } else {
       this.select = false;
       i++;
-      console.log(charName + ": " + this.select + i);
+      // console.log(charName + ": " + this.select + i);
     }
   }
+  return charSets;
 }
 
 
