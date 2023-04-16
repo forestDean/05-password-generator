@@ -58,7 +58,7 @@ function getPasswordOptions() {
     passLength = prompt("How many characters do you want in your password?\nChoose a number between 8 and 128\nWe recommend 12 to 16");
   }
   while (passLength < 8 || passLength > 128 || isNaN(passLength));
-  console.log("passLength: " + passLength);
+  // console.log("passLength: " + passLength);
 
   // iterate through character sets & validate...
   for (var i = 0; i < passChar.length; i++) {
@@ -106,34 +106,30 @@ function getRandom(arr) {
 } 
 
 
-
 // https://www.tutorialrepublic.com/faq/how-to-find-an-object-by-property-value-in-an-array-of-javascript-objects.php
-// https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/
 // Function to generate password with user input
-var passComp = "";
-var charSelect; // declare locally
-var keySelect; // declare locally
 function generatePassword() {
+  var charSelect;
+  var keySelect;
+  var passComp = ""; // clears previous iterations
   // *iterate number of times given by var passLength in prompt
-  console.log("passLength3: " + passLength);
   for (var i = 0; i < passLength; i++) {
-  console.log(i+1 + " /passLength: " + passLength); //undefined!!
+  // random selection of character set
   charSelect = getRandom(charSets);
-  console.log("charSelect : " + charSelect + " is " + (typeof charSelect));
   charThis = passChar.find(item => item.name === charSelect); // change arrow to function()
-  console.log(charThis.characters);
+  // console.log(charThis.characters);
+
+  // random selection of character
   keySelect = getRandom(charThis.characters);
-  console.log("keySelect: " + keySelect);
+  // console.log("keySelect: " + keySelect);
 
   passComp += keySelect;
-
+  
  }
 
-  //console.log("password: " + password);
-  console.log("passComp: " + passComp);
-  // passComp.join('')
-  //return "pa55word123";
-  
+  // console.log("passComp: " + passComp);
+  return passComp;
+
 }
 
 
@@ -142,7 +138,6 @@ var startBtn = document.querySelector('#start');
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
-//this.style.backgroundColor = "green";
 
 // Write password to the #password input
 function writePassword() {
