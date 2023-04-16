@@ -66,9 +66,9 @@ function getPasswordOptions() {
 
 // Function for validating character choices
 var charSets = []; // global
+var i = 0;
 function validateChar(charName) { 
   var input;
-  var i = 0;
   if (i > 2) {
     alert("Your password will be all Special Characters.");
     passChar[3].select = true;
@@ -112,7 +112,10 @@ function generatePassword() {
   for (var i = 0; i < passLength; i++) {
   // random selection of character set
   charSelect = getRandom(charSets);
-  charThis = passChar.find(item => item.name === charSelect); // change arrow to function()
+  // match to object by property value
+  charThis = passChar.find(function isMatch(item) {
+    return item.name === charSelect
+  });
   // console.log(charThis.characters);
 
   // random selection of character
