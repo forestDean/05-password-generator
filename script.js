@@ -77,19 +77,19 @@ function validateChar(charName) {
     do {
       var input = prompt("Would you like to use " + charName + " Characters? Y/N");
       input = input.toUpperCase();
-       console.log(input);
+      // console.log(input);
     }
     while ((input != "Y") && (input != "N")); // *check notEqual
 
     if (input === "Y") {
       this.select = true;
-       console.log(charName + ": " + this.select);
+      // console.log(charName + ": " + this.select);
       charSets.push(charName);
-       console.log("charSets: " + charSets);
+      // console.log("charSets: " + charSets);
     } else {
       this.select = false;
       i++;
-       console.log(charName + ": " + this.select + i);
+      // console.log(charName + ": " + this.select + i);
     }
   }
   return charSets;
@@ -112,7 +112,10 @@ function generatePassword() {
   for (var i = 0; i < passLength; i++) {
   // random selection of character set
   charSelect = getRandom(charSets);
-  charThis = passChar.find(item => item.name === charSelect); // change arrow to function()
+  // match to object by property value
+  charThis = passChar.find(function isMatch(item) {
+    return item.name === charSelect
+  });
   // console.log(charThis.characters);
 
   // random selection of character
