@@ -20,7 +20,8 @@ The **Password Generator** has been optimised for various display sizes using re
 	
 ## Installation
 	
-The page is live at https://forestdean.github.io/05-password-generator/
+The page is live at https://forestdean.github.io/05-password-generator/    
+`console.log` entries have been commented but left for users.
 	
 ## Usage
 	   
