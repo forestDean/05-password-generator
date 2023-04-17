@@ -82,8 +82,7 @@ header {
 .btn {
   border: none;
   background-color: var(--forestGreen);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
   color: hsl(0, 0%, 100%);
   display: inline-block;
   font-size: 22px;
@@ -129,7 +128,6 @@ button[disabled] {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  /* border: 2px dashed #c0c7cf; */
   border: 2px dashed rgba(85, 107, 47, 0.3);
   resize: none;
   overflow: hidden;

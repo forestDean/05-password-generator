@@ -47,23 +47,9 @@ var passChar = [
 //     or written to the page
 //  =============================================================================================
 
-function refreshPage(){
-  window.location.reload();
-}
-
-function reset() {
-  //location.reload();
-  document.location.reload();
-  return getPasswordOptions();
- 
-  // console.log("reload");
-  // window.onload = getPasswordOptions();
-  //k = 0;
-}
-
 // Function to prompt user for password options
 var passLength = 8; // global - set at minimum
-var charSets = []; // global
+var charSets = [];
 var k = 0;
 
 function getPasswordOptions() {
@@ -72,10 +58,10 @@ function getPasswordOptions() {
     passLength = prompt("How many characters do you want in your password?\nChoose a number between 8 and 128\nWe recommend 12 to 16");
   }
   while (passLength < 8 || passLength > 128 || isNaN(passLength));
-   console.log("passLength: " + passLength);
+   // console.log("passLength: " + passLength);
    charSets.length = 0; // clears previous iterations
    k = 0; // clears previous iterations
-   console.log("charSets: " + charSets);
+   // console.log("charSets: " + charSets);
    
   // iterate through character sets & validate...
   for (var i = 0; i < passChar.length; i++) {
@@ -87,32 +73,31 @@ function getPasswordOptions() {
 // Function for validating character choices
 function validateChar(charName) { 
   var input;
-  console.log("k: " + k);
+  // console.log("k: " + k);
   if (k > 2) {
     alert("Your password will be all Special Characters.");
     passChar[3].select = true;
     charSets.push(charName);
-    console.log("charSets: " + charSets);
+    // console.log("charSets: " + charSets);
   } else {
     do {
       var input = prompt("Would you like to use " + charName + " Characters? Y/N");
       input = input.toUpperCase();
-       console.log(input);
+      // console.log(input);
     }
-    while ((input != "Y") && (input != "N")); // *check notEqual
+    while ((input != "Y") && (input != "N"));
 
     if (input === "Y") {
       this.select = true;
-       console.log(charName + ": " + this.select);
+       // console.log(charName + ": " + this.select);
       charSets.push(charName);
-       console.log("charSets: " + charSets);
+       // console.log("charSets: " + charSets);
     } else {
       this.select = false;
       k++;
-       console.log(charName + ": " + this.select + k);
+       // console.log(charName + ": " + this.select + k);
     }
   }
-  //k = 0; //reset
   return charSets;
 }
 
@@ -168,12 +153,7 @@ function writePassword() {
 }
 
 // Add event listener to start button
-//startBtn.addEventListener('mousedown', location.reload.bind(location));
-//startBtn.addEventListener('mousedown', refreshPage); //see function above
-//startBtn.addEventListener('click', function(){location.reload()});
 startBtn.addEventListener('click', getPasswordOptions);
-//startBtn.addEventListener('click', reset);
-//startBtn.addEventListener('load', getPasswordOptions);
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
